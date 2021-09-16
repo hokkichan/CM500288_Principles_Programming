@@ -5,21 +5,21 @@
 
  */
 
-void printMultiples (int k, int n) {
-  for (int i=1; i<n; i++) {
-    printf("%d\t", k*i);
+void printMultiples (int index, int inline_Horz) {
+  for (int i=1; i<=inline_Horz; i++) {
+    printf("%d\t", index*i);
   }
 }
 
-void squareMultTable(int i, int j){
-    for (int i=1; i<=j; i++) {
-      printMultiples(i, j);
+void squareMultTable(int horz, int vert){
+    for (int i=1; i<=vert; i++) {
+      printMultiples(i, horz);
       printf("\n");
     }
   } 
 
 
 int main(void) {
-  squareMultTable(9, 10);
+  squareMultTable(9, 7);
   return 0;
 }
