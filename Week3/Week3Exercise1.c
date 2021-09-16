@@ -6,12 +6,12 @@
  */
 
 void printMultiples (int k, int n) {
-  for (int i=1; i<=n; i++) {
+  for (int i=1; i<n; i++) {
     printf("%d\t", k*i);
   }
 }
 
-void squareMultTable(int j){
+void squareMultTable(int i, int j){
     for (int i=1; i<=j; i++) {
       printMultiples(i, j);
       printf("\n");
@@ -20,6 +20,6 @@ void squareMultTable(int j){
 
 
 int main(void) {
-  squareMultTable(9);
+  squareMultTable(9, 10);
   return 0;
 }
