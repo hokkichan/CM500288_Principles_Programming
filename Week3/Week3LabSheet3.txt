@@ -1,0 +1,99 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+
+  /* 
+  * Lab Sheet 3
+  */
+
+  /* Question 1
+  
+  Complete the function below which converts a hexadecimal string into its decimal value. (Do not use a C standard library function.) 
+
+  The main function calls this function with an example hexadecimal value. Change this value to test your program.
+  */
+
+int switchHex (char digit) {
+  if (digit == 'A') {
+      return 10;
+  } else if (digit == 'B') {
+      return 11;
+  } else if (digit == 'C') {
+      return 12;
+  } else if (digit == 'D') {
+      return 13;
+  } else if (digit == 'E') {
+      return 14;
+  } else if (digit == 'F') {
+      return 15;
+  } else return (digit - '0');
+}
+
+int hexToDec(char hex[]){
+  int base = 0;
+  int length = strlen(hex);
+  int nums[length];
+  for (int i=0; i<length; i++) {
+    nums[i] = switchHex(hex[i]);
+  }
+  for (int i=0; i<length; i++) {
+    base += nums[i]*pow(16, length-i-1);
+  }
+  return base;
+}
+
+/* Question 2
+ Complete the function below that print out a tree shape such as the following: 
+
+    *
+   ***
+  *****
+ *******
+*********
+   ***
+   ***
+   ***
+   ***
+
+  Note you can (and probably should) implement additional functions to help.
+
+  You can assume that the width of the tree will be odd and hence every line will have an odd number of asterisks. The trunk will always have a width of three.
+
+  Call this function from the main to test your program.
+*/
+void printTop (int width) {
+  int width2 = width;
+  for (int i=1; i<=width; i+=2) {
+    for (int n=(width2-1)/2; n>0; n--) {
+      printf(" "); 
+      }
+      width2-=2;
+    for (int j=1; j<=i; j++) {
+    printf("*");
+    }
+    printf("\n");
+  }
+}
+
+void printWidth (int width, int trunkLength) {
+  int width2 = width;
+  for (int i=1; i<=trunkLength; i++) {
+    for (int n=(width2-3)/2; n>0; n--) {
+        printf(" ");
+      }
+      printf("***");
+      printf("\n");
+    }
+  }
+
+void printTree(int width, int trunkLength){
+  printTop(width);
+  printWidth(width, trunkLength);
+}
+
+int main(void) {
+  char hex[4] = "FF3";
+  printf("The hex value %s is %d in decimal\n", hex, hexToDec(hex));
+  printTree(9, 4);
+  return 0;
+}
