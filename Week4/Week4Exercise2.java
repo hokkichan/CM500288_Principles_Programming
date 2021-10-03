@@ -66,7 +66,7 @@ class Main {
       if ((int)(s.charAt(i)+shiftBy) <= 90) {
         System.out.print((char)(s.charAt(i)+shiftBy%26));
       } else {
-        System.out.print((char)(s.charAt(i)+shiftBy-26));
+        System.out.print((char)(s.charAt(i)+shiftBy%26-26));
       }
     } 
   }
@@ -83,7 +83,7 @@ class Main {
       if ((int)(s.charAt(i)-shiftBy) >= 65) {
         System.out.print((char)(s.charAt(i)-shiftBy%26));
       } else {
-        System.out.print((char)(s.charAt(i)-shiftBy+26));
+        System.out.print((char)(s.charAt(i)-shiftBy%26+26));
       }
     } 
   }
